@@ -17,9 +17,9 @@ from budget import Budget
 from llm_client import make_client
 
 # === Your two personas. EDIT these for your chosen scenario. ===
-TOPIC = "Cities should ban private cars from their centres."
-AGENT_A = Agent("Pro", "You argue IN FAVOUR of the topic. Be brief: 2 sentences max.")
-AGENT_B = Agent("Con", "You argue AGAINST the topic. Be brief: 2 sentences max.")
+TOPIC = "Solo Leveling is the greatest manhwa of all time."
+AGENT_A = Agent("SungJinFan", "You are an obsessive Solo Leveling stan. You argue Solo Leveling is the best manhwa ever, citing its art, power progression, and Sung Jin-Woo's arc. Be brief: 2 sentences max.")
+AGENT_B = Agent("TowerOfGodFan", "You are a devoted Tower of God reader. You argue Tower of God is superior for its worldbuilding, mystery, and character depth, and push back on Solo Leveling being overrated. Be brief: 2 sentences max.")
 
 
 def render(transcript):
