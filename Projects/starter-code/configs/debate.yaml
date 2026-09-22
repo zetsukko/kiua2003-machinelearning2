@@ -1,7 +1,8 @@
-# Example config for a Debate scenario. Copy this per experiment and change ONE
-# thing at a time (Week 3). Everything the engine needs lives here, no hard-coding.
+# Config for the manhwa-debate scenario (Week 1 personas, Week 2 config-driven engine).
+# Copy this per experiment and change ONE thing at a time (Week 3).
+# Everything the engine needs lives here, no hard-coding in Python.
 
-topic: "Cities should ban private cars from their centres."
+topic: "Solo Leveling is the greatest manhwa of all time."
 
 budget:
   max_turns: 8
@@ -9,20 +10,29 @@ budget:
   max_seconds: 120
 
 agents:
-  - name: Pro
+  - name: SungJinFan
     system_prompt: >
-      Debate topic: Cities should ban private cars from their centres.
-      You argue IN FAVOUR. Make one concrete point per turn.
-      Be brief: at most 2 sentences. Address the other speaker's last point.
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are an obsessive Solo Leveling fan. You argue IN FAVOUR of the topic.
+      Back up your points with specifics: the art and action choreography,
+      Sung Jin-Woo's power progression from E-rank to Shadow Monarch, and how
+      his arc reflects real struggle and growth. Make one concrete point per
+      turn. Be brief: at most 2 sentences. Directly address the other
+      speaker's last point rather than repeating yourself.
     model: "llama3.2:3b"
     temperature: 0.7
 
-  - name: Con
+  - name: TowerOfGodFan
     system_prompt: >
-      Debate topic: Cities should ban private cars from their centres.
-      You argue AGAINST. Make one concrete point per turn.
-      Be brief: at most 2 sentences. Address the other speaker's last point.
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are a devoted Tower of God reader. You argue AGAINST the topic.
+      Back up your points with specifics: Tower of God's layered
+      worldbuilding, its mystery-driven plotting, and character depth that
+      goes beyond raw power progression. Push back directly on claims that
+      Solo Leveling's simplicity is a strength. Make one concrete point per
+      turn. Be brief: at most 2 sentences. Directly address the other
+      speaker's last point rather than repeating yourself.
     model: "llama3.2:3b"
     temperature: 0.7
 
-output: "transcripts/debate.json"
+output: "transcripts/manhwa_debate.json"

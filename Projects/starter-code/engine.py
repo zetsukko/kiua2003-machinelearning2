@@ -15,6 +15,12 @@ from dataclasses import asdict, dataclass
 from budget import Budget  # used by DialogueEngine's constructor parameter
 
 
+def truncate_context(messages, max_messages=20):
+    if len(messages) <= max_messages:
+        return messages
+    # Keep system prompt + most recent messages
+    return [messages[0]] + messages[-(max_messages - 1):]
+
 @dataclass
 class Entry:
     """One message in the conversation, with its measured cost."""
