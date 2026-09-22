@@ -6,9 +6,9 @@ Category: **Debate**
 
 Two manhwa fans arguing about which series is the GOAT.
 
-- **SungJinFan** — die-hard Solo Leveling stan. All about the art, the power
+- **SungJinFan** - die-hard Solo Leveling stan. All about the art, the power
   progression, and Jin-Woo's whole arc.
-- **TowerOfGodFan** — Tower of God devotee. Thinks Solo Leveling is
+- **TowerOfGodFan** - Tower of God devotee. Thinks Solo Leveling is
   overrated and argues ToG wins on worldbuilding and mystery.
 
 Topic: "Solo Leveling is the greatest manhwa of all time."
@@ -26,14 +26,14 @@ You argue AGAINST the topic. Be brief: 2 sentences max.
 ```
 
 (Note: right now these are the generic Pro/Con prompts from `ping_pong.py`
-with just the agent names swapped to match the manhwa scenario — I haven't
+with just the agent names swapped to match the manhwa scenario. I haven't
 written manhwa-specific system prompts yet. That's the next thing to fix,
 see "Next steps" below.)
 
 ## What "goal reached" means
 
 Since this is a **Debate** scenario, the goal isn't for the two agents to
-agree — debates don't need to converge. Following the pattern from the
+agree. Debates don't need to converge. Following the pattern from the
 Project Brief (a 3rd judge agent picks a winner after N rounds), I'm
 defining goal-reached like this:
 
@@ -44,10 +44,10 @@ defining goal-reached like this:
   details (character names, plot points, actual arguments) rather than
   vague claims, and did they respond directly to the other side's points
   instead of just repeating themselves.
-- I haven't built the judge yet — that's a Week 2/3 thing (`goal_reached`
+- I haven't built the judge yet, that's a Week 2/3 thing (`goal_reached`
   is literally a parameter `DialogueEngine` already supports, I just need
   to write the judging function). For now, "goal reached" is defined but
-  not yet automatically tested — the current runs stop purely on
+  not yet automatically tested. The current runs stop purely on
   `max_turns`, not on goal completion.
 
 ## First try: mock mode
@@ -59,11 +59,11 @@ python ping_pong.py --mock
 8 turns, ~634-814 tokens, basically instant, stopped because it hit
 max_turns.
 
-The loop itself worked fine — turns alternated, budget tracked everything,
+The loop itself worked fine, turns alternated, budget tracked everything,
 stopped when it was supposed to. But the actual replies were kind of
 random and had nothing to do with manhwa ("I think we should weigh the
 costs before anything else"?). Turns out MockClient just cycles through 6
-hardcoded lines no matter what you feed it — it doesn't even look at the
+hardcoded lines no matter what you feed it, it doesn't even look at the
 system prompt or topic. Makes sense though, it's just there to test that
 the plumbing works without needing a real model.
 
@@ -78,10 +78,10 @@ python ping_pong.py
 This time it was actually good. SungJinFan kept hammering that Solo
 Leveling's bleakness is intentional and "authentic," ToG fan kept saying
 Solo Leveling's themes are one-note compared to ToG's layered
-worldbuilding. Neither one backed down — they argued the whole 8 turns and
+worldbuilding. Neither one backed down, they argued the whole 8 turns and
 never agreed on anything, which honestly tracks for this kind of fan
 debate lol. (Funny enough the mock run randomly ended on "Agreed, I think
-that's our common ground" — which obviously wasn't a real agreement, just
+that's our common ground," which obviously wasn't a real agreement, just
 a coincidence from the canned replies.)
 
 Quick comparison:
@@ -99,7 +99,7 @@ time, but you actually get a debate that makes sense.
 
 ## Thing I noticed about ping_pong.py
 
-The way it builds the prompt is kind of janky — it dumps the ENTIRE
+The way it builds the prompt is kind of janky, it dumps the ENTIRE
 conversation so far into one big "user" message every single turn, for
 both agents:
 
@@ -111,12 +111,12 @@ messages = [
 ```
 
 So neither agent actually knows which lines were theirs and which were the
-other person's — it's all just one wall of text. Also this means the
+other person's, it's all just one wall of text. Also this means the
 prompt keeps growing every turn since you're resending the whole history,
 which is going to be a problem eventually if the conversation runs long.
 
 Guessing this is exactly what engine.py's view_for() is supposed to fix in
-Week 2 — giving each agent its own lines as "assistant" and the other
+Week 2, giving each agent its own lines as "assistant" and the other
 agent's lines as "user" so it actually knows who's who. Week 3 sounds like
 it'll deal with the growing-prompt problem.
 

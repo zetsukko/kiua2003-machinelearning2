@@ -1,0 +1,29 @@
+# FAILURE-MODE DEMO: both agents get the SAME system prompt on purpose.
+# Per the course brief: "identical personas reliably produce sycophancy."
+# Use this to capture a real failed run for the Week 4 report's failure analysis.
+
+topic: "Solo Leveling is the greatest manhwa of all time."
+
+budget:
+  max_turns: 8
+  max_tokens: 4000
+  max_seconds: 120
+
+agents:
+  - name: AgentA
+    system_prompt: >
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      Discuss this topic thoughtfully with the other speaker. Be brief:
+      at most 2 sentences. Respond to what they just said.
+    model: "llama3.2:3b"
+    temperature: 0.7
+
+  - name: AgentB
+    system_prompt: >
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      Discuss this topic thoughtfully with the other speaker. Be brief:
+      at most 2 sentences. Respond to what they just said.
+    model: "llama3.2:3b"
+    temperature: 0.7
+
+output: "transcripts/failure_sycophancy.json"
