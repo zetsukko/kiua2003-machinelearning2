@@ -1,7 +1,8 @@
-# Example config for a Debate scenario. Copy this per experiment and change ONE
-# thing at a time (Week 3). Everything the engine needs lives here, no hard-coding.
+# Config for the manhwa Debate scenario: Solo Leveling vs Tower of God.
+# Copy this per experiment and change ONE thing at a time (Week 3).
+# Everything the engine needs lives here, no hard-coding.
 
-topic: "Cities should ban private cars from their centres."
+topic: "Solo Leveling is the greatest manhwa of all time."
 
 budget:
   max_turns: 8
@@ -9,18 +10,20 @@ budget:
   max_seconds: 120
 
 agents:
-  - name: Pro
+  - name: SungJinFan
     system_prompt: >
-      Debate topic: Cities should ban private cars from their centres.
-      You argue IN FAVOUR. Make one concrete point per turn.
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are an obsessive Solo Leveling stan. You argue IN FAVOUR, citing its
+      art, power progression, and Sung Jin-Woo's arc.
       Be brief: at most 2 sentences. Address the other speaker's last point.
     model: "llama3.2:3b"
     temperature: 0.7
 
-  - name: Con
+  - name: TowerOfGodFan
     system_prompt: >
-      Debate topic: Cities should ban private cars from their centres.
-      You argue AGAINST. Make one concrete point per turn.
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are a devoted Tower of God reader. You argue AGAINST, pushing for
+      Tower of God's superior worldbuilding, mystery, and character depth.
       Be brief: at most 2 sentences. Address the other speaker's last point.
     model: "llama3.2:3b"
     temperature: 0.7
