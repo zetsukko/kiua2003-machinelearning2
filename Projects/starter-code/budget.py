@@ -74,3 +74,4 @@ class Budget:
                 "max_seconds": self.max_seconds,
             },
         }
+

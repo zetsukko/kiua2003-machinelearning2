@@ -13,3 +13,4 @@ class Agent:
     system_prompt: str
     model: str = "llama3.2:3b"
     temperature: float = 0.7
+

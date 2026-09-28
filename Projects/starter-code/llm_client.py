@@ -102,3 +102,4 @@ class MockClient:
 
 def make_client(mock=False, host="http://localhost:11434"):
     return MockClient() if mock else OllamaClient(host=host)
+
