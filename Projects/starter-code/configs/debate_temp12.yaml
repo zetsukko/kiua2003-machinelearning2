@@ -1,0 +1,31 @@
+# Experiment: manhwa debate at temperature 1.2 (high = more random/creative).
+# Only the temperature changes between this file and debate_temp03.yaml /
+# debate_temp07.yaml - everything else (personas, topic, budget) stays identical.
+
+topic: "Solo Leveling is the greatest manhwa of all time."
+
+budget:
+  max_turns: 8
+  max_tokens: 4000
+  max_seconds: 120
+
+agents:
+  - name: SungJinFan
+    system_prompt: >
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are an obsessive Solo Leveling stan. You argue IN FAVOUR, citing its
+      art, power progression, and Sung Jin-Woo's arc.
+      Be brief: at most 2 sentences. Address the other speaker's last point.
+    model: "llama3.2:3b"
+    temperature: 1.2
+
+  - name: TowerOfGodFan
+    system_prompt: >
+      Debate topic: Solo Leveling is the greatest manhwa of all time.
+      You are a devoted Tower of God reader. You argue AGAINST, pushing for
+      Tower of God's superior worldbuilding, mystery, and character depth.
+      Be brief: at most 2 sentences. Address the other speaker's last point.
+    model: "llama3.2:3b"
+    temperature: 1.2
+
+output: "transcripts/debate_temp12.json"

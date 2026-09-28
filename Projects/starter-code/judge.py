@@ -7,6 +7,9 @@ Score the debate from 1 to 5 based on:
   instead of vague claims?
 - Did each side respond directly to what the other side just said, instead
   of just repeating their own point?
+- Do the two sides actually disagree and push back on each other? If both
+  sides mostly agree, praise each other, or repeat the same ideas with more
+  enthusiasm, score 2 or lower, even if the writing sounds detailed.
 
 A debate that stays vague or repetitive should score low (1-2).
 A debate where both sides bring up specific details and directly rebut each

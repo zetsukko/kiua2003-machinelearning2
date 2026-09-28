@@ -1,0 +1,31 @@
+# Failure-mode run: both agents get the SAME instructions, so nobody is told to disagree.
+# The brief says identical personas tend to produce sycophancy (the agents just agree).
+# Everything else matches my normal manhwa debate, so the only change is the personas.
+
+topic: "Solo Leveling is the greatest manhwa of all time."
+
+budget:
+  max_turns: 8
+  max_tokens: 4000
+  max_seconds: 120
+
+agents:
+  - name: ReaderOne
+    system_prompt: >
+      You are a manhwa reader chatting with another reader.
+      Topic: Solo Leveling is the greatest manhwa of all time.
+      Give your honest opinion and react to what the other reader said.
+      Keep every reply to 2 sentences at most.
+    model: "llama3.2:3b"
+    temperature: 0.7
+
+  - name: ReaderTwo
+    system_prompt: >
+      You are a manhwa reader chatting with another reader.
+      Topic: Solo Leveling is the greatest manhwa of all time.
+      Give your honest opinion and react to what the other reader said.
+      Keep every reply to 2 sentences at most.
+    model: "llama3.2:3b"
+    temperature: 0.7
+
+output: "transcripts/failure_identical.json"
