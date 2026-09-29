@@ -4,6 +4,12 @@ Two agents debate whether "Solo Leveling is the greatest manhwa of all
 time." One argues for it (SungJinFan), one argues against it
 (TowerOfGodFan). A separate judge agent scores the finished debate.
 
+## Pairing
+
+The code in this repository was written in a pair: Kim Eidesmo and
+Ådne Aas Hansen. The report and the video are individual work, written and
+recorded separately.
+
 ## Setup
 
 ```
@@ -103,6 +109,19 @@ python test_judge.py       # checks the judge scores a good run higher than a ba
   definition, written in Week 1.
 - `week3_notes.md` - notes on context management, the judge, and the
   temperature experiment, written in Week 3.
+
+## AI use
+
+I used Claude (an LLM) to help with this project. The manhwa debate topic and
+the personas (SungJinFan vs TowerOfGodFan) were my idea. Claude wrote the
+detailed system prompt wording in `configs/debate.yaml` and
+`configs/failure_sycophancy.yaml` based on that. Claude also helped with
+debugging environment/Git setup, and with writing `judge.py`, `experiment.py`,
+`run_judge.py`, `build_results_table.py`, the test scripts (`test_budgets.py`,
+`test_context.py`, `test_judge.py`), and drafts of the design doc, week 3
+notes, and the final report. I wrote `view_for()` and `DialogueEngine.run()`
+in `engine.py` myself (Claude checked them and caught one bug in `save()`).
+I can explain every line I'm submitting.
 
 ## The one rule
 

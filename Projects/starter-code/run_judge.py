@@ -35,3 +35,14 @@ if __name__ == "__main__":
 
     print("--- Judge verdict ---")
     print(json.dumps(verdict, indent=2))
+
+    # Actually USE the verdict (including "winner") by writing it back onto
+    # the saved transcript file, instead of just printing it and throwing it
+    # away. This is what makes "winner" a field the project actually reads,
+    # not just a value the judge happens to return.
+    with open(args.path) as f:
+        data = json.load(f)
+    data["judge"] = verdict
+    with open(args.path, "w") as f:
+        json.dump(data, f, indent=2)
+    print(f"\nSaved judge verdict (incl. winner) into {args.path}")

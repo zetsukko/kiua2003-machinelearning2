@@ -12,7 +12,6 @@ import argparse
 
 from llm_client import make_client
 
-
 def smoke(mock):
     client = make_client(mock=mock)
     messages = [
